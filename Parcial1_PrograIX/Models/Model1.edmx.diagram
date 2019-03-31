@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5776092a1fd94e47ad6f1b360e645f22" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_prograIX.Asignacion_jugadores" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Equipos" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Estadio" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Estudiante" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Gole" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Jugadore" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Partido" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Registros_empleados" Width="1.5" PointX="10" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_prograIX.Tarjeta" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="DB_prograIX.FK_Asignacion_jugadores_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Asignacion_jugadores_2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Goles_3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Partidos_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Partidos_2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Tarjetas_3" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Estadio_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Registros_empleados_To_Estudiantes" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Goles_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Goles_2" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Tarjetas_1" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_prograIX.FK_Tarjetas_2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_prograIX.Piloto" Width="1.5" PointX="8.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DB_prograIX.Marca" Width="1.5" PointX="5.375" PointY="11" />
+        <EntityTypeShape EntityType="DB_prograIX.Vehiculo" Width="1.5" PointX="7.625" PointY="10" />
+        <AssociationConnector Association="DB_prograIX.FK_Vehiculos1" />
+        <EntityTypeShape EntityType="DB_prograIX.Percance" Width="1.5" PointX="10.625" PointY="8" />
+        <EntityTypeShape EntityType="DB_prograIX.Tarifa" Width="1.5" PointX="8.375" PointY="15.5" />
+        <AssociationConnector Association="DB_prograIX.FK_Percances1" />
+        <AssociationConnector Association="DB_prograIX.FK_Percances2" />
+        <AssociationConnector Association="DB_prograIX.FK_Percances3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

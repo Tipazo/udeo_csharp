@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_prograIX" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Asignacion_jugadores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jugador_id" Type="Int32" Nullable="false" />
+    <Property Name="equipo_id" Type="Int32" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="numero_camisola" Type="Int32" Nullable="false" />
+    <Property Name="posicion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Jugadore" Relationship="Self.FK_Asignacion_jugadores_1" FromRole="Asignacion_jugadores" ToRole="Jugadores" />
+    <NavigationProperty Name="Equipos" Relationship="Self.FK_Asignacion_jugadores_2" FromRole="Asignacion_jugadores" ToRole="Equipos" />
+  </EntityType>
+  <EntityType Name="Equipos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Asignacion_jugadores" Relationship="Self.FK_Asignacion_jugadores_2" FromRole="Equipos" ToRole="Asignacion_jugadores" />
+    <NavigationProperty Name="Goles" Relationship="Self.FK_Goles_3" FromRole="Equipos" ToRole="Goles" />
+    <NavigationProperty Name="Partidos" Relationship="Self.FK_Partidos_1" FromRole="Equipos" ToRole="Partidos" />
+    <NavigationProperty Name="Partidos1" Relationship="Self.FK_Partidos_2" FromRole="Equipos" ToRole="Partidos" />
+    <NavigationProperty Name="Tarjetas" Relationship="Self.FK_Tarjetas_3" FromRole="Equipos" ToRole="Tarjetas" />
+  </EntityType>
+  <EntityType Name="Estadio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="capacidad" Type="Int32" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Partidos" Relationship="Self.FK_Estadio_1" FromRole="Estadios" ToRole="Partidos" />
+  </EntityType>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="genre" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Registros_empleados" Relationship="Self.FK_Registros_empleados_To_Estudiantes" FromRole="Estudiantes" ToRole="Registros_empleados" />
+  </EntityType>
+  <EntityType Name="Gole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jugador_id" Type="Int32" Nullable="false" />
+    <Property Name="partido_id" Type="Int32" Nullable="false" />
+    <Property Name="equipo_id" Type="Int32" Nullable="false" />
+    <Property Name="minuto_gol" Type="Int32" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Equipos" Relationship="Self.FK_Goles_3" FromRole="Goles" ToRole="Equipos" />
+    <NavigationProperty Name="Jugadore" Relationship="Self.FK_Goles_1" FromRole="Goles" ToRole="Jugadores" />
+    <NavigationProperty Name="Partido" Relationship="Self.FK_Goles_2" FromRole="Goles" ToRole="Partidos" />
+  </EntityType>
+  <EntityType Name="Jugadore">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="genre" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Asignacion_jugadores" Relationship="Self.FK_Asignacion_jugadores_1" FromRole="Jugadores" ToRole="Asignacion_jugadores" />
+    <NavigationProperty Name="Goles" Relationship="Self.FK_Goles_1" FromRole="Jugadores" ToRole="Goles" />
+    <NavigationProperty Name="Tarjetas" Relationship="Self.FK_Tarjetas_1" FromRole="Jugadores" ToRole="Tarjetas" />
+  </EntityType>
+  <EntityType Name="Partido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="equipo_a" Type="Int32" Nullable="false" />
+    <Property Name="equipo_b" Type="Int32" Nullable="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dia_hora" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="estadio_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Equipos" Relationship="Self.FK_Partidos_1" FromRole="Partidos" ToRole="Equipos" />
+    <NavigationProperty Name="Equipos1" Relationship="Self.FK_Partidos_2" FromRole="Partidos" ToRole="Equipos" />
+    <NavigationProperty Name="Estadio" Relationship="Self.FK_Estadio_1" FromRole="Partidos" ToRole="Estadios" />
+    <NavigationProperty Name="Goles" Relationship="Self.FK_Goles_2" FromRole="Partidos" ToRole="Goles" />
+    <NavigationProperty Name="Tarjetas" Relationship="Self.FK_Tarjetas_2" FromRole="Partidos" ToRole="Tarjetas" />
+  </EntityType>
+  <EntityType Name="Registros_empleados">
+    <Key>
+      <PropertyRef Name="tipo" />
+      <PropertyRef Name="estudiante_id" />
+      <PropertyRef Name="fecha" />
+    </Key>
+    <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estudiante_id" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="hora_registro" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Estudiante" Relationship="Self.FK_Registros_empleados_To_Estudiantes" FromRole="Registros_empleados" ToRole="Estudiantes" />
+  </EntityType>
+  <EntityType Name="Tarjeta">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="jugador_id" />
+      <PropertyRef Name="partido_id" />
+      <PropertyRef Name="equipo_id" />
+      <PropertyRef Name="created_at" />
+      <PropertyRef Name="updated_at" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jugador_id" Type="Int32" Nullable="false" />
+    <Property Name="partido_id" Type="Int32" Nullable="false" />
+    <Property Name="equipo_id" Type="Int32" Nullable="false" />
+    <Property Name="minuto_tarjeta" Type="Int32" />
+    <Property Name="tipo_tarjeta" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Equipos" Relationship="Self.FK_Tarjetas_3" FromRole="Tarjetas" ToRole="Equipos" />
+    <NavigationProperty Name="Jugadore" Relationship="Self.FK_Tarjetas_1" FromRole="Tarjetas" ToRole="Jugadores" />
+    <NavigationProperty Name="Partido" Relationship="Self.FK_Tarjetas_2" FromRole="Tarjetas" ToRole="Partidos" />
+  </EntityType>
+  <Association Name="FK_Asignacion_jugadores_1">
+    <End Role="Jugadores" Type="Self.Jugadore" Multiplicity="1" />
+    <End Role="Asignacion_jugadores" Type="Self.Asignacion_jugadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jugadores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignacion_jugadores">
+        <PropertyRef Name="jugador_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Asignacion_jugadores_2">
+    <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+    <End Role="Asignacion_jugadores" Type="Self.Asignacion_jugadores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignacion_jugadores">
+        <PropertyRef Name="equipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goles_3">
+    <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+    <End Role="Goles" Type="Self.Gole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goles">
+        <PropertyRef Name="equipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partidos_1">
+    <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+    <End Role="Partidos" Type="Self.Partido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partidos">
+        <PropertyRef Name="equipo_a" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partidos_2">
+    <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+    <End Role="Partidos" Type="Self.Partido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partidos">
+        <PropertyRef Name="equipo_b" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tarjetas_3">
+    <End Role="Equipos" Type="Self.Equipos" Multiplicity="1" />
+    <End Role="Tarjetas" Type="Self.Tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tarjetas">
+        <PropertyRef Name="equipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estadio_1">
+    <End Role="Estadios" Type="Self.Estadio" Multiplicity="1" />
+    <End Role="Partidos" Type="Self.Partido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estadios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partidos">
+        <PropertyRef Name="estadio_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Registros_empleados_To_Estudiantes">
+    <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Registros_empleados" Type="Self.Registros_empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiantes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Registros_empleados">
+        <PropertyRef Name="estudiante_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goles_1">
+    <End Role="Jugadores" Type="Self.Jugadore" Multiplicity="1" />
+    <End Role="Goles" Type="Self.Gole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jugadores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goles">
+        <PropertyRef Name="jugador_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Goles_2">
+    <End Role="Partidos" Type="Self.Partido" Multiplicity="1" />
+    <End Role="Goles" Type="Self.Gole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Goles">
+        <PropertyRef Name="partido_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tarjetas_1">
+    <End Role="Jugadores" Type="Self.Jugadore" Multiplicity="1" />
+    <End Role="Tarjetas" Type="Self.Tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jugadores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tarjetas">
+        <PropertyRef Name="jugador_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tarjetas_2">
+    <End Role="Partidos" Type="Self.Partido" Multiplicity="1" />
+    <End Role="Tarjetas" Type="Self.Tarjeta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partidos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tarjetas">
+        <PropertyRef Name="partido_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_Proga_IX" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Asignacion_jugadores" EntityType="Self.Asignacion_jugadores" />
+    <EntitySet Name="Equipos" EntityType="Self.Equipos" />
+    <EntitySet Name="Estadios" EntityType="Self.Estadio" />
+    <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+    <EntitySet Name="Goles" EntityType="Self.Gole" />
+    <EntitySet Name="Jugadores" EntityType="Self.Jugadore" />
+    <EntitySet Name="Partidos" EntityType="Self.Partido" />
+    <EntitySet Name="Registros_empleados" EntityType="Self.Registros_empleados" />
+    <EntitySet Name="Tarjetas" EntityType="Self.Tarjeta" />
+    <AssociationSet Name="FK_Asignacion_jugadores_1" Association="Self.FK_Asignacion_jugadores_1">
+      <End Role="Jugadores" EntitySet="Jugadores" />
+      <End Role="Asignacion_jugadores" EntitySet="Asignacion_jugadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Asignacion_jugadores_2" Association="Self.FK_Asignacion_jugadores_2">
+      <End Role="Equipos" EntitySet="Equipos" />
+      <End Role="Asignacion_jugadores" EntitySet="Asignacion_jugadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goles_3" Association="Self.FK_Goles_3">
+      <End Role="Equipos" EntitySet="Equipos" />
+      <End Role="Goles" EntitySet="Goles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partidos_1" Association="Self.FK_Partidos_1">
+      <End Role="Equipos" EntitySet="Equipos" />
+      <End Role="Partidos" EntitySet="Partidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partidos_2" Association="Self.FK_Partidos_2">
+      <End Role="Equipos" EntitySet="Equipos" />
+      <End Role="Partidos" EntitySet="Partidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tarjetas_3" Association="Self.FK_Tarjetas_3">
+      <End Role="Equipos" EntitySet="Equipos" />
+      <End Role="Tarjetas" EntitySet="Tarjetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estadio_1" Association="Self.FK_Estadio_1">
+      <End Role="Estadios" EntitySet="Estadios" />
+      <End Role="Partidos" EntitySet="Partidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Registros_empleados_To_Estudiantes" Association="Self.FK_Registros_empleados_To_Estudiantes">
+      <End Role="Estudiantes" EntitySet="Estudiantes" />
+      <End Role="Registros_empleados" EntitySet="Registros_empleados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goles_1" Association="Self.FK_Goles_1">
+      <End Role="Jugadores" EntitySet="Jugadores" />
+      <End Role="Goles" EntitySet="Goles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Goles_2" Association="Self.FK_Goles_2">
+      <End Role="Partidos" EntitySet="Partidos" />
+      <End Role="Goles" EntitySet="Goles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tarjetas_1" Association="Self.FK_Tarjetas_1">
+      <End Role="Jugadores" EntitySet="Jugadores" />
+      <End Role="Tarjetas" EntitySet="Tarjetas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tarjetas_2" Association="Self.FK_Tarjetas_2">
+      <End Role="Partidos" EntitySet="Partidos" />
+      <End Role="Tarjetas" EntitySet="Tarjetas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
