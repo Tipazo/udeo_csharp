@@ -35,6 +35,13 @@
         <AssociationConnector Association="DB_prograIX.FK_Percances1" />
         <AssociationConnector Association="DB_prograIX.FK_Percances2" />
         <AssociationConnector Association="DB_prograIX.FK_Percances3" />
+        <EntityTypeShape EntityType="DB_prograIX.Colore" Width="1.5" PointX="12.375" PointY="5.25" />
+        <EntityTypeShape EntityType="DB_prograIX.Dispositivo" Width="1.5" PointX="14.625" PointY="1" />
+        <EntityTypeShape EntityType="DB_prograIX.Fabrica" Width="1.5" PointX="12.375" PointY="1.625" />
+        <EntityTypeShape EntityType="DB_prograIX.Tipos_gama" Width="1.5" PointX="12.375" PointY="12.75" />
+        <AssociationConnector Association="DB_prograIX.FK_Dispositivos2" />
+        <AssociationConnector Association="DB_prograIX.FK_Dispositivos1" />
+        <AssociationConnector Association="DB_prograIX.FK_Dispositivos3" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

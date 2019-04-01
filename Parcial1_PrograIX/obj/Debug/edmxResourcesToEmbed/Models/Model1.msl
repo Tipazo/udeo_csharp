@@ -194,5 +194,48 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Colores">
+      <EntityTypeMapping TypeName="DB_prograIX.Colore">
+        <MappingFragment StoreEntitySet="Colores">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dispositivos">
+      <EntityTypeMapping TypeName="DB_prograIX.Dispositivo">
+        <MappingFragment StoreEntitySet="Dispositivos">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="color_id" ColumnName="color_id" />
+          <ScalarProperty Name="fabrica_id" ColumnName="fabrica_id" />
+          <ScalarProperty Name="gama_id" ColumnName="gama_id" />
+          <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+          <ScalarProperty Name="costo_con_incremento" ColumnName="costo_con_incremento" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fabricas">
+      <EntityTypeMapping TypeName="DB_prograIX.Fabrica">
+        <MappingFragment StoreEntitySet="Fabricas">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="costo_incremento" ColumnName="costo_incremento" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipos_gama">
+      <EntityTypeMapping TypeName="DB_prograIX.Tipos_gama">
+        <MappingFragment StoreEntitySet="Tipos_gama">
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

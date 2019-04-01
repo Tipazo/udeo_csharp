@@ -40,5 +40,9 @@ namespace Parcial1_PrograIX.Models
         public virtual DbSet<Vehiculo> Vehiculos { get; set; }
         public virtual DbSet<Percance> Percances { get; set; }
         public virtual DbSet<Tarifa> Tarifas { get; set; }
+        public virtual DbSet<Colore> Colores { get; set; }
+        public virtual DbSet<Dispositivo> Dispositivos { get; set; }
+        public virtual DbSet<Fabrica> Fabricas { get; set; }
+        public virtual DbSet<Tipos_gama> Tipos_gama { get; set; }
     }
 }

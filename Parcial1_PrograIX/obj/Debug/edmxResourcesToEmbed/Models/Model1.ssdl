@@ -12,6 +12,28 @@
     <Property Name="numero_camisola" Type="int" Nullable="false" />
     <Property Name="posicion" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Colores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dispositivos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="costo" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="costo_con_incremento" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="fecha_registro" Type="datetime" Nullable="false" />
+    <Property Name="gama_id" Type="int" Nullable="false" />
+    <Property Name="fabrica_id" Type="int" Nullable="false" />
+    <Property Name="color_id" Type="int" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Equipos">
     <Key>
       <PropertyRef Name="Id" />
@@ -44,6 +66,15 @@
     <Property Name="genre" Type="nvarchar" MaxLength="6" />
     <Property Name="created_at" Type="datetime" Nullable="false" />
     <Property Name="updated_at" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fabricas">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="costo_incremento" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Goles">
     <Key>
@@ -166,6 +197,14 @@ warning 6002: The table/view 'progra6Final.dbo.Tarjetas' does not have a primary
     <Property Name="created_at" Type="datetime" Nullable="false" />
     <Property Name="updated_at" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Tipos_gama">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="created_at" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Vehiculos">
     <Key>
       <PropertyRef Name="Id" />
@@ -209,6 +248,42 @@ warning 6002: The table/view 'progra6Final.dbo.Tarjetas' does not have a primary
       </Principal>
       <Dependent Role="Asignacion_jugadores">
         <PropertyRef Name="equipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dispositivos1">
+    <End Role="Tipos_gama" Type="Self.Tipos_gama" Multiplicity="1" />
+    <End Role="Dispositivos" Type="Self.Dispositivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipos_gama">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dispositivos">
+        <PropertyRef Name="gama_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dispositivos2">
+    <End Role="Colores" Type="Self.Colores" Multiplicity="1" />
+    <End Role="Dispositivos" Type="Self.Dispositivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Colores">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dispositivos">
+        <PropertyRef Name="color_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dispositivos3">
+    <End Role="Fabricas" Type="Self.Fabricas" Multiplicity="1" />
+    <End Role="Dispositivos" Type="Self.Dispositivos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fabricas">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dispositivos">
+        <PropertyRef Name="fabrica_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -382,9 +457,12 @@ warning 6002: The table/view 'progra6Final.dbo.Tarjetas' does not have a primary
   </Association>
   <EntityContainer Name="DB_prograIXStoreContainer">
     <EntitySet Name="Asignacion_jugadores" EntityType="Self.Asignacion_jugadores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Colores" EntityType="Self.Colores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dispositivos" EntityType="Self.Dispositivos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Equipos" EntityType="Self.Equipos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estadios" EntityType="Self.Estadios" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fabricas" EntityType="Self.Fabricas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Goles" EntityType="Self.Goles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Jugadores" EntityType="Self.Jugadores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Marcas" EntityType="Self.Marcas" Schema="dbo" store:Type="Tables" />
@@ -393,6 +471,7 @@ warning 6002: The table/view 'progra6Final.dbo.Tarjetas' does not have a primary
     <EntitySet Name="Pilotos" EntityType="Self.Pilotos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Registros_empleados" EntityType="Self.Registros_empleados" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tarifas" EntityType="Self.Tarifas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipos_gama" EntityType="Self.Tipos_gama" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -413,6 +492,18 @@ warning 6002: The table/view 'progra6Final.dbo.Tarjetas' does not have a primary
     <AssociationSet Name="FK_Asignacion_jugadores_2" Association="Self.FK_Asignacion_jugadores_2">
       <End Role="Equipos" EntitySet="Equipos" />
       <End Role="Asignacion_jugadores" EntitySet="Asignacion_jugadores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dispositivos1" Association="Self.FK_Dispositivos1">
+      <End Role="Tipos_gama" EntitySet="Tipos_gama" />
+      <End Role="Dispositivos" EntitySet="Dispositivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dispositivos2" Association="Self.FK_Dispositivos2">
+      <End Role="Colores" EntitySet="Colores" />
+      <End Role="Dispositivos" EntitySet="Dispositivos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dispositivos3" Association="Self.FK_Dispositivos3">
+      <End Role="Fabricas" EntitySet="Fabricas" />
+      <End Role="Dispositivos" EntitySet="Dispositivos" />
     </AssociationSet>
     <AssociationSet Name="FK_Estadio_1" Association="Self.FK_Estadio_1">
       <End Role="Estadios" EntitySet="Estadios" />
