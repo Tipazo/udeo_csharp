@@ -17,12 +17,14 @@ namespace Parcial1_PrograIX.Controllers
         private DB_Proga_IX db = new DB_Proga_IX();
 
         // GET: api/Tipos_gamaApi
+        [Authorize]
         public IQueryable<Tipos_gama> GetTipos_gama()
         {
             return db.Tipos_gama;
         }
 
         // GET: api/Tipos_gamaApi/5
+        [Authorize]
         [ResponseType(typeof(Tipos_gama))]
         public IHttpActionResult GetTipos_gama(int id)
         {
@@ -36,6 +38,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // PUT: api/Tipos_gamaApi/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTipos_gama(int id, Tipos_gama tipos_gama)
         {
@@ -71,6 +74,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // POST: api/Tipos_gamaApi
+        [Authorize]
         [ResponseType(typeof(Tipos_gama))]
         public IHttpActionResult PostTipos_gama(Tipos_gama tipos_gama)
         {
@@ -92,6 +96,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // DELETE: api/Tipos_gamaApi/5
+        [Authorize]
         [ResponseType(typeof(Tipos_gama))]
         public IHttpActionResult DeleteTipos_gama(int id)
         {

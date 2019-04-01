@@ -17,12 +17,14 @@ namespace Parcial1_PrograIX.Controllers
         private DB_Proga_IX db = new DB_Proga_IX();
 
         // GET: api/ColoresApi
+        [Authorize]
         public IQueryable<Colore> GetColores()
         {
             return db.Colores;
         }
 
         // GET: api/ColoresApi/5
+        [Authorize]
         [ResponseType(typeof(Colore))]
         public IHttpActionResult GetColore(int id)
         {
@@ -36,6 +38,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // PUT: api/ColoresApi/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutColore(int id, Colore colore)
         {
@@ -71,6 +74,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // POST: api/ColoresApi
+        [Authorize]
         [ResponseType(typeof(Colore))]
         public IHttpActionResult PostColore(Colore colore)
         {
@@ -92,6 +96,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // DELETE: api/ColoresApi/5
+        [Authorize]
         [ResponseType(typeof(Colore))]
         public IHttpActionResult DeleteColore(int id)
         {

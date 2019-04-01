@@ -17,12 +17,14 @@ namespace Parcial1_PrograIX.Controllers
         private DB_Proga_IX db = new DB_Proga_IX();
 
         // GET: api/FabricasApi
+        [Authorize]
         public IQueryable<Fabrica> GetFabricas()
         {
             return db.Fabricas;
         }
 
         // GET: api/FabricasApi/5
+        [Authorize]
         [ResponseType(typeof(Fabrica))]
         public IHttpActionResult GetFabrica(int id)
         {
@@ -36,6 +38,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // PUT: api/FabricasApi/5
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutFabrica(int id, Fabrica fabrica)
         {
@@ -71,6 +74,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // POST: api/FabricasApi
+        [Authorize]
         [ResponseType(typeof(Fabrica))]
         public IHttpActionResult PostFabrica(Fabrica fabrica)
         {
@@ -92,6 +96,7 @@ namespace Parcial1_PrograIX.Controllers
         }
 
         // DELETE: api/FabricasApi/5
+        [Authorize]
         [ResponseType(typeof(Fabrica))]
         public IHttpActionResult DeleteFabrica(int id)
         {

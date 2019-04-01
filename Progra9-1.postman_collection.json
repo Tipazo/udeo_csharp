@@ -666,6 +666,406 @@
 			]
 		},
 		{
+			"name": "Examen Final",
+			"item": [
+				{
+					"name": "Add Tipo de Gama",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Xss Maxs\",\r\n    \"created_at\": \"01-01-2019\",\r\n    \"updated_at\": \"01-01-2019\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/Tipos_gamaApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"Tipos_gamaApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List Gamas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/Tipos_gamaApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"Tipos_gamaApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Colores",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Azul\",\r\n    \"created_at\": \"01-01-2019\",\r\n    \"updated_at\": \"01-01-2019\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/ColoresApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"ColoresApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List colores",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/ColoresApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"ColoresApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Fabrica",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Londres\",\r\n    \"costo_incremento\": \"9\",\r\n    \"created_at\": \"01-01-2019\",\r\n    \"updated_at\": \"01-01-2019\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/FabricasApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"FabricasApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fabricas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/FabricasApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"FabricasApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Dispositivo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Dispositivo20\",\r\n    \"costo\": \"1080\",\r\n    \"costo_con_incremento\": \"0\",\r\n    \"fecha_registro\": \"01-01-2019\",\r\n    \"gama_id\": \"2\",\r\n    \"fabrica_id\": \"4\",\r\n    \"color_id\": \"1\",\r\n    \"created_at\": \"01-01-2019\",\r\n    \"updated_at\": \"01-01-2019\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/DispositivoesApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"DispositivoesApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Dispositivos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/DispositivoesApi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"DispositivoesApi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Ping Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/login/echoping",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"login",
+								"echoping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Verificar user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/login/echouser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"login",
+								"echouser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creat Token credenciales",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Username\": \"admin\",\n    \"Password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/login/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"login",
+								"authenticate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Token Custumer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dispositivos por Gama",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:49819/api/DispositivoesApi/gama/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "49819",
+							"path": [
+								"api",
+								"DispositivoesApi",
+								"gama",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Get Values",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -1134,6 +1534,38 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFkbWluIiwibmJmIjoxNTU0MDg5ODgzLCJleHAiOjE1NTQwOTUyODMsImlhdCI6MTU1NDA4OTg4MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo0OTgxOSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NDk4MTkifQ.3swWz-lKV56Dwn_aBp8vMxILQpo7m-afccISY6UNXC4",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "42507a37-24bf-48fc-9d66-922fb51d426c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "3633be9b-05ff-420c-9e4c-23081880742b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

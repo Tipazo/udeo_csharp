@@ -18,6 +18,8 @@ namespace Parcial1_PrograIX
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // Nuevo agregado para tokens
+            //GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Parcial1_PrograIX.Models
         public DB_Proga_IX()
             : base("name=DB_Proga_IX")
         {
+            this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = false;
         }
     

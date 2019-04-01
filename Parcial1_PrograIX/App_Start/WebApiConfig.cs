@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial1_PrograIX.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -19,6 +20,8 @@ namespace Parcial1_PrograIX
             // Web API routes
             var corsAttr = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(corsAttr);
+
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
